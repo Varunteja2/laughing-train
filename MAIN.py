@@ -25,3 +25,8 @@ class WeatherApp:
     def get_forecast_data(self):
         forecast_url = f"http://api.openweathermap.org/data/2.5/forecast?q={self.city_name}&appid={self.api_key}"
         response = requests.get(forecast_url)
+        if response.status_code != 200:
+          raise ValueError("Failed to get forecast data")
+        forecast_data = json.loads(response.content)["list"]
+        self.forecast_data = []
+ 
