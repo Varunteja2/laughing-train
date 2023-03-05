@@ -85,7 +85,7 @@ class WeatherApp:
             weather_label = Label(root, text=forecast['weather_description'], font=("Arial", 16), bg="white")
             weather_label.pack()
             
-        root.mainloop()                                                                            
+        root.mainloop()   ssss                                                                         
 
         
 
