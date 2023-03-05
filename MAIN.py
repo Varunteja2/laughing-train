@@ -50,6 +50,7 @@ class WeatherApp:
         self.city_name = city_name
         self.get_current_weather_data()
         self.get_forecast_data()
+        
     
 
 
