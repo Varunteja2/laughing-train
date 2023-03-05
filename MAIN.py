@@ -15,4 +15,8 @@ class WeatherApp:
         weather_url = f"http://api.openweathermap.org/data/2.5/weather?q={self.city_name}&appid={self.api_key}"
         response = requests.get(weather_url)
         if response.status_code !=200:
-            
+            raise ValueError("Failed to get weather data")
+        weather_data = json.loads(response.content)
+        self.temperature = round(weather_data["main"]["temp"]-273.15,2)
+        self.weather_description = weather_data["weather"][0]["description"].capitalize()
+        self.weather_icon = weather_data["weather"][0]["icon"]
